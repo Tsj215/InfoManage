@@ -1,0 +1,147 @@
+{{extend '../pages/index.html'}}
+{{block 'content'}}
+<div id="info-manage">
+    <!--	按钮组-->
+    <div class="btns-div">
+        <!-- Split button -->
+        {{if !edit}}
+        <div class="btn-group selectCategory-1">
+            <!--下拉菜单-->
+            <button type="button" class="btn btn-default">{{category}}</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                {{each categoryName}}
+                <li><a href="/info?id={{$value}}">{{$value}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+        <!--按钮-->
+
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">新增</button>&nbsp;
+        <button type="button" class="btn btn-danger infoDeletes">批量删除</button>
+        {{/if}}
+        <!--模态框-->
+
+        <div id="myModal1" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">新增文章</h4>
+                    </div>
+                    <form action="/info/new" method="post">
+                        <div class="modal-body">
+                            <!--文章标题-->
+                            <div class="form-group">
+                                <label for="title" class="control-label">文章标题:</label>
+                                <input type="text" name="title" class="form-control" id="title">
+                            </div>
+                            <!--下拉菜单-->
+                            <div class="form-group">
+                                <div class="btn-group selectCategory-2">
+                                    <!--获取下拉菜单选中内容-->
+                                    <div class="hidden">
+                                        <label for="category" class="hidden">文章标题:</label>
+                                        <input type="hidden" name="category" class="form-control" id="category">
+                                    </div>
+                                    <button type="button" class="btn btn-default dropdown-toggle droupList"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        所属栏目<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {{each categoryName}}
+                                        <li><a href="#">{{$value}}</a></li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--排列方式-->
+                            <div class="form-group clearfix">
+                                <label class="col-md-2">排列方式</label>
+                                <label class="col-md-4">
+                                    <input type="radio" name="arrange" value="option1">
+                                    <img src="../../public/images/style-one.jpg" class="img-responsive"
+                                         style="width: 270px" alt="">
+                                </label>
+                                <label class="col-md-4">
+                                    <input type="radio" name="arrange" value="option2">
+                                    <img src="../../public/images/style-two.jpg" class="img-responsive"
+                                         style="width: 270px" alt="">
+                                </label>
+                            </div>
+                            <!--作者-->
+                            <div class="form-group">
+                                <label for="author" class="control-label">作者:</label>
+                                <input type="text" name="author" class="form-control" id="author">
+                            </div>
+                            <!--内容-->
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">文章内容:</label>
+                                <textarea class="form-control" name="article" id="message-text"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-primary">添加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--	表格组-->
+    <div class="table-div infoCheck">
+        <table class="table table-striped text-center">
+            {{if !edit}}
+            <thead>
+            <tr>
+                <th class="text-center">选择</th>
+                <th class="text-center">文章标题</th>
+                <th class="text-center">所属栏目</th>
+                <th class="text-center">排列方式</th>
+                <th class="text-center">作者</th>
+                <th class="text-center">发布时间</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            {{/if}}
+
+            <tbody>
+            {{ each info }}
+            <tr>
+                <td>
+                    <div class="pretty p-icon p-round  p-rotate p-bigger">
+                        <input type="checkbox" value={{$value._id}}>
+                        <div class="state p-primary-o">
+                            <i class="icon mdi mdi-check-all"></i>
+                            <label></label>
+                        </div>
+                    </div>
+                </td>
+                <td>{{$value.title}}</td>
+                <td>{{$value.category}}</td>
+                <td>{{$value.arrange}}</td>
+                <td>{{$value.author}}</td>
+                <td>{{$value.dateTime}}</td>
+                <td>
+                    <a title="编辑" href="/info/edit?id={{ $value._id }}" class="fa fa-pencil-square-o"
+                       aria-hidden="true"></a>
+                    <a title="删除" href="/info/delete?id={{ $value._id }}" class="fa fa-trash-o"
+                       aria-hidden="true"></a></td>
+            </tr>
+            {{ /each }}
+            </tbody>
+        </table>
+    </div>
+    <!--    编辑模态框-->
+    {{block 'edit'}}{{/block}}
+</div>
+{{/block}}

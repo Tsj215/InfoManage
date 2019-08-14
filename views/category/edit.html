@@ -1,0 +1,19 @@
+{{extend './category.html'}}
+{{block 'edit'}}
+<form action="/category/edit" method="post">
+    <input type="hidden" value="{{edit._id}}" name="_id">
+    <div class="form-group">
+        <label for="">编号</label>
+        <input type="number" class="form-control" value="{{ edit.id }}" name="id" id="" placeholder="请输入你的名字">
+    </div>
+    <div class="form-group">
+        <label for="">名称</label>
+        <input type="text" class="form-control" value="{{ edit.name }}" name="name">
+    </div>
+    <div class="form-group">
+        <label>描述</label>
+        <input type="text" class="form-control" value="{{ edit.comment }}" name="comment">
+    </div>
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>
+{{/block}}

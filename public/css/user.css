@@ -1,0 +1,37 @@
+#user-manage .col-md-12{
+    margin-bottom: 15px;
+}
+
+#user-manage .user-list {
+    margin-bottom: 12px;
+}
+
+#user-manage .user-info {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px #cccccc;
+    font-size: 17px;
+    overflow: hidden;
+    padding-top: 8px;
+}
+
+#user-manage .user-info > img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+#user-manage .info-content {
+    overflow: hidden;
+    color: #999999;
+    font-family: sans-serif;
+}
+
+#user-manage .info-content .row {
+    margin-bottom: 5px;
+}
+
+#user-manage .info-content .col-md-7 {
+    color: #222222;
+}

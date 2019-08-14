@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+article, nav, header, img {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+}
+
+/*body左侧*/
+.info-left {
+    width: 240px;
+    background-color: #2e323f
+}
+
+/*左侧头部*/
+.info-left > header {
+    line-height: 64px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #5584ff;
+    background-color: #2f323f;;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .75);
+}
+
+/*nav*/
+.info-left nav {
+    height: calc(100% - 64px);
+    padding-top: 20px;
+    border-right: 1px solid #cccccc;
+}
+
+.info-left li {
+    line-height: 30px;
+    padding: 2px 0;
+}
+
+.info-left nav li a {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.info-left nav li a:hover {
+    background-color: #467bf9;
+}
+
+.info-left li i:first-child {
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+.info-left li i:last-child {
+    float: right;
+    line-height: 30px;
+    padding-right: 10px;
+}
+
+/*表格div*/
+.table-div {
+    margin-top: 25px;
+}
+
+/*表格内图标颜色*/
+.table-div td a {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.table-div td alast-child {
+    margin-right: 0;
+}
+
+.table-div td a[title=编辑] {
+    color: #5cb85c;
+}
+
+.table-div td a[title=删除] {
+    color: #c9302c;
+}
+
+/*body右侧*/
+.info-right {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+/*右侧头部*/
+.info-right > header {
+    height: 64px;
+    color: #333;
+    background-color: #fff;
+}
+
+.info-right .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5584ff;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.info-right .col-md-1 {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333333;
+}
+
+.info-right .col-md-1 > i {
+    padding-right: 5px;
+}
+
+.info-right .info-content {
+    height: calc(100% - 60px);
+    overflow: auto;
+    padding: 10px;
+}
+
+/*info 下拉菜单*/
+/*.droupDiv{*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*}*/
+.droupList {
+    width: 160px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

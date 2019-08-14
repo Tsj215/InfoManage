@@ -1,0 +1,28 @@
+/*
+home 页面
+ */
+#home-manage .col-md-12{
+    border-radius: 4px;
+    display: flex;
+    margin-bottom: 18px;
+}
+
+#home-manage .echart{
+    flex: 1;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-left: 10px;
+    height: 250px;
+}
+
+#echart-point{
+    background-color: #fff;
+}
+
+#echart-cross{
+    background-color: #fff;
+}
+
+.middle{
+    height: 300px;
+}

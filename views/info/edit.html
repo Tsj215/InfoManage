@@ -1,0 +1,60 @@
+{{extend './info.html'}}
+{{block 'edit'}}
+<form action="/info/edit" method="post">
+    <input type="hidden" value="{{edit._id}}" name="_id">
+    <div class="modal-body">
+        <!--文章标题-->
+        <div class="form-group">
+            <label for="title" class="control-label">文章标题:</label>
+            <input type="text" name="title" class="form-control" value="{{edit.title}}" id="title">
+        </div>
+        <!--下拉菜单-->
+        <div class="form-group">
+            <div class="btn-group selectCategory-2">
+                <!--获取下拉菜单选中内容-->
+                <div class="hidden">
+                    <label for="category" class="hidden">文章标题:</label>
+                    <input type="hidden" name="category" class="form-control" id="category">
+                </div>
+                <button type="button" class="btn btn-default dropdown-toggle droupList"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    所属栏目<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    {{each categoryName}}
+                    <li><a href="#">{{$value}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <!--排列方式-->
+        <div class="form-group">
+            <label class="control-label">排列方式</label>
+            <label class="radio-inline">
+                <input type="radio" name="arrange" value="option1">
+                <img src="../../public/images/style-one.jpg" class="img-responsive"
+                     style="width: 270px" alt="">
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="arrange" value="option2">
+                <img src="../../public/images/style-one.jpg" class="img-responsive"
+                     style="width: 270px" alt="">
+            </label>
+        </div>
+        <!--作者-->
+        <div class="form-group">
+            <label for="author" class="control-label">作者:</label>
+            <input type="text" name="author" value="{{edit.author}}" class="form-control" id="author">
+        </div>
+        <!--内容-->
+        <div class="form-group">
+            <label for="message-text" class="control-label">文章内容:</label>
+            <textarea class="form-control" name="article" id="message-text">{{edit.article}}</textarea>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary">修改</button>
+    </div>
+</form>
+{{/block}}
