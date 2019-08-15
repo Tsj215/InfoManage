@@ -1,5 +1,7 @@
 ## 项目说明
-资讯管理系统
+资讯管理系统<br>
+`npm install`下载对应依赖<br>
+`npm start`启动项目(监听5000端口)<br>
 ***
 ### 前台搭建
 页面搭建时使用了<br>
@@ -14,3 +16,4 @@
 ### 后台搭建
 ***
 后台使用了`node express mongodb mongoose art-template`<br>
+
