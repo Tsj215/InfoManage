@@ -14,6 +14,9 @@
 使用了`echarts`进行数据可视化
 ***
 ### 后台搭建
-***
 后台使用了`node express mongodb mongoose art-template`<br>
+使用`node+express`搭建了后台路由以及接口<br>
+采用`mongdb+mongoose`实现数据的长久存储<br>
+借助`atr-template`对页面进行渲染
+
 
