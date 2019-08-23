@@ -22,8 +22,8 @@ app.use(bodyParser.json())
 
 app.use(router)
 
-app.listen(5000,function () {
-    console.log('running at 5000 port')
+app.listen(4001,function () {
+    console.log('running at 4001 port')
 })
 
 module.export = app
